@@ -25,12 +25,12 @@ async def createToken(self, msg, m):
         await msg.channel.send(':white_check_mark: token `{}` created!'.format(m))
 
 async def sendToken(self, msg, m):
-    if self.stonksData[m[2]][msg.author.id] - float(m[1]) >= 0 and float(m[1]) > 0:
+    if self.stonksData[m[2]][str(msg.author.id)] - float(m[1]) >= 0 and float(m[1]) > 0:
         try:
-            self.stonksData[m[2]][msg.mentions[0].id] += float(m[1])
+            self.stonksData[m[2]][str(msg.mentions[0].id)] += float(m[1])
         except:
-            self.stonksData[m[2]][msg.mentions[0].id] = float(m[1])
-        self.stonksData[m[2]][msg.author.id] += 0 - float(m[1])
+            self.stonksData[m[2]][str(msg.mentions[0].id)] = float(m[1])
+        self.stonksData[m[2]][str(msg.author.id)] += 0 - float(m[1])
         await msg.channel.send(':white_check_mark: sent!')
     else:
         await msg.channel.send(':x: invalid amount dummy thicc')
@@ -51,16 +51,16 @@ async def tokenBal(self, msg, m):
         try:
             if m[0] == '*':
                 a=''
-                for i in [s for s in self.stonksData if n in self.stonksData[msg.author.id]]:
-                    a = a + "{}: {}, ".format(i, self.stonksData[i][msg.author.id])
+                for i in [s for s in self.stonksData if str(msg.author.id) in self.stonksData[str(msg.author.id)]]:
+                    a = a + "{}: {}, ".format(i, self.stonksData[i][str(msg.author.id)])
                 await msg.channel.send('All your balences: {}'.format(a[:-2]))
                 return
-            await msg.channel.send('your balence of {} is {}.'.format(m[0], self.stonksData[m[0]][msg.author.id]))
+            await msg.channel.send('your balence of {} is {}.'.format(m[0], self.stonksData[m[0]][str(msg.author.id)]))
         except:
             await msg.channel.send('you have no {}.'.format(m[0]))
     else:
         try:
-            await msg.channel.send("{}'s balance of {} is {}.".format(msg.mentions[0], m[1], self.stonksData[m[1]][msg.mentions[0].id]))
+            await msg.channel.send("{}'s balance of {} is {}.".format(msg.mentions[0], m[1], self.stonksData[m[1]][str(msg.mentions[0].id)]))
         except:
             await msg.channel.send('{} has no {}.'.format(msg.mentions[0], m[1]))
 
