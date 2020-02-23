@@ -1,5 +1,7 @@
 # economy module
 
+import json
+
 async def loadJson(self):
     try:
         with open('db/stonks.json') as json_file:
