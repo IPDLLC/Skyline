@@ -51,18 +51,18 @@ async def tokenBal(self, msg, m):
         try:
             if m[0] == '*':
                 a=''
-                for i in [s for s in self.stonksData if str(msg.author.id) in self.stonksData[str(msg.author.id)]]:
-                    a = a + "{}: {}, ".format(i, self.stonksData[i][str(msg.author.id)])
-                await msg.channel.send('All your balences: {}'.format(a[:-2]))
+                for i in [s for s in self.stonksData if str(msg.author.id) in self.stonksData[s]]:
+                    a = a + "`{}`: `{}`, ".format(i, self.stonksData[i][str(msg.author.id)])
+                await msg.channel.send('All your balances: {}'.format(a[:-2]))
                 return
-            await msg.channel.send('your balence of {} is {}.'.format(m[0], self.stonksData[m[0]][str(msg.author.id)]))
+            await msg.channel.send('your balance of `{}` is `{}`.'.format(m[0], self.stonksData[m[0]][str(msg.author.id)]))
         except:
-            await msg.channel.send('you have no {}.'.format(m[0]))
+            await msg.channel.send('you have no `{}`.'.format(m[0]))
     else:
         try:
-            await msg.channel.send("{}'s balance of {} is {}.".format(msg.mentions[0], m[1], self.stonksData[m[1]][str(msg.mentions[0].id)]))
+            await msg.channel.send("`{}`'s balance of `{}` is `{}`.".format(msg.mentions[0], m[1], self.stonksData[m[1]][str(msg.mentions[0].id)]))
         except:
-            await msg.channel.send('{} has no {}.'.format(msg.mentions[0], m[1]))
+            await msg.channel.send('`{}` has no `{}`.'.format(msg.mentions[0], m[1]))
 
 cmds = {
     "create": createToken,
