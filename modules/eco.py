@@ -36,7 +36,7 @@ async def sendToken(self, msg, m):
         await msg.channel.send(':x: invalid amount dummy thicc')
 
 async def listTokens(self, msg, m):
-    await msg.channel.send('the tokens that exist are: '+' '.join(list(self.stonksData.keys())))
+    await msg.channel.send('the tokens that exist are: `'+'`, `'.join(list(self.stonksData.keys()))+'`.')
 
 async def nuke(self, msg, m):
     t = m.pop(0)
