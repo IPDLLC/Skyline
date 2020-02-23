@@ -19,7 +19,7 @@ async def infractions(self, msg, args):
         await noPerms(self, msg)
 
 async def warn(self, msg, args):
-    if await self.permCheck(msg.author):
+    if msg.author.guild_permissions.manage_messages:
         args = args.split()
         try:
             toWarn = self.get_user(msg.mentions[0].id)
@@ -39,7 +39,7 @@ async def warn(self, msg, args):
         await noPerms(self, msg)
 
 async def kick(self, msg, args):
-    if await self.permCheck(msg.author):
+    if msg.author.guild_permissions.kick_members:
         resp = msg.mentions[0]
         args = "{} ({})".format(args, str(msg.author))
         await msg.guild.kick(resp, reason=args)
@@ -48,7 +48,7 @@ async def kick(self, msg, args):
         await noPerms(self, msg)
 
 async def ban(self, msg, args):
-    if await self.permCheck(msg.author):
+    if msg.author.guild_permissions.ban_members:
         resp = msg.mentions[0]
         args = "{} ({})".format(args, str(msg.author))
         await msg.guild.ban(resp, reason=args, delete_message_days=0)
@@ -57,7 +57,7 @@ async def ban(self, msg, args):
         await noPerms(self, msg)
 
 async def gtfo(self, msg, args):
-    if await self.permCheck(msg.author):
+    if msg.author.guild_permissions.ban_members:
         resp = msg.mentions[0] 
         args = "{} ({})".format(args, str(msg.author))
         await msg.guild.ban(resp, reason=args, delete_message_days=1)
@@ -66,7 +66,7 @@ async def gtfo(self, msg, args):
         await noPerms(self, msg)
 
 async def purge(self, msg, args):
-    if await self.permCheck(msg.author):
+    if msg.author.guild_permissions.manage_messages:
         await msg.delete()
         if args:
             dell = await msg.channel.purge(limit=int(args))
