@@ -10,7 +10,7 @@ async def modules(self, msg, args):
     await msg.channel.send("**Here are my currently loaded modules**:\n"+' '.join(list(self.modules.keys())))
 
 async def about(self, msg, args):
-    await msg.channel.send("**About the bot**:\nwl-bot is the moderation bot for r/windowsloser's discord. the prefix is ? and you can find the source code at https://github.com/lickthecheese/wl-bot")
+    await msg.channel.send("**About the bot**:\nSkyline is a basic moderations bot which is very lightweight and easy to use, to list all commands, type !?help. To invite the bot, type !?invite. Join the official discord server here at: **discord.gg/qRh8VF9**")
 
 async def init(self):
     await self.registerCommand(help, 'help', 'help [command]', 'show how to use commands or list the commands')
