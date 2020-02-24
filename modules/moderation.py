@@ -60,7 +60,7 @@ async def gtfo(self, msg, args):
     if msg.author.guild_permissions.ban_members:
         resp = msg.mentions[0] 
         args = "{} ({})".format(args, str(msg.author))
-        await msg.guild.ban(resp, reason=args, delete_message_days=1)
+        await msg.guild.ban(resp, reason=args, delete_message_days=7)
         await msg.channel.send(":white_check_mark: {} **has been banned and rolled back**.".format(str(resp)))
     else:
         await noPerms(self, msg)
