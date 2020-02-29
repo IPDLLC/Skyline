@@ -20,7 +20,8 @@ class Bot(discord.Client):
         self.timeouts = []
         self.help = {}
         self.prefix = "!?"
-        
+
+        self.blacklistedUsers = config.blacklistedUsers       
         self.owners = config.botOwners
 
         print('loading modules...')
@@ -69,6 +70,8 @@ class Bot(discord.Client):
         return await perms.permCheck(self, user)
 
     async def on_message(self, message):
+        if message.author.id in self.blacklistedUsers:
+            return
         if message.content[0:len(self.prefix)] == self.prefix:
             args = message.content[len(self.prefix):].strip().split()
             try:
