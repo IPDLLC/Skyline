@@ -13,6 +13,8 @@ Don't forget to read the [license](LICENSE)
 - make a config.py file with the content:
 ```
 botToken="<your token here>"
+botOwner=[<your user ID>]
+blacklistedUsers=[<ids of people not allowed to use the bot>]
 ```
 - install the dependencies, you need python, and some python librarys including discord.py
 - do `./runBot.sh` to start the bot
