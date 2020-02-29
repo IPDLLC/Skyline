@@ -26,7 +26,7 @@ async def listBlacklist(self,msg,args):
     if not msg.author.id in self.owners:
         await msg.channel.send(':x: You do not have permission to do this.')
         return
-    await msg.channel.send('Blacklisted users: `{}`'.format(', '.join(self.blacklistedUsers)))
+    await msg.channel.send('Blacklisted users: `{}`'.format(', '.join(str(x) for x in self.blacklistedUsers)))
 
 async def init(self):
     await self.registerCommand(addToBlacklist, 'ablacklist', 'ablacklist <mention>', 'blacklist a user from using the bot (bot owner only)')
