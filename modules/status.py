@@ -13,5 +13,5 @@ async def statCommand(self, msg, args):
 
 async def init(self):
     await rlStat(self)
-    self.registerCommand(statCommand, 'rlstat', 'rlstat', 'reloads status message, bot owners only')
+    await self.registerCommand(statCommand, 'rlstat', 'rlstat', 'reloads status message, bot owners only')
 
