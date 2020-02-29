@@ -15,7 +15,7 @@ async def addreply(self, msg, args):
         f = open(alepsaFile, 'a')
         f.write(args)
         f.close()
-       await msg.channel.send('Sucessfully added **{}** to the list of replies!'.format (args))   
+        await msg.channel.send('Sucessfully added **{}** to the list of replies!'.format (args))   
 async def removereply(self, msg, args):
     if message.author.guild_permissions.kick_members:
         f.open(alepsaFile, 'rw')
