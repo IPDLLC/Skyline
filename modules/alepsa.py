@@ -11,25 +11,14 @@ async def alepsa(self, msg, args):
             replies[i] = replies[i][:-1]
         ranReply = replies[int(random.uniform(0,len(replies)))]
         await msg.channel.send('Alepsa says **{}**'.format (ranReply))
+
+
 async def addreply(self, msg, args):
         f = open(alepsaFile, 'a')
-        f.write(args)
+        f.write(args + '\n')
         f.close()
         await msg.channel.send('Sucessfully added **{}** to the list of replies!'.format (args))   
-async def removereply(self, msg, args):
-    if message.author.guild_permissions.kick_members:
-        f.open(alepsaFile, 'rw')
-        cleanReplies = []
-        dirtyReplies = f.readlines()
-        if len(args) < 2: # if the filter is too small assume they are trying to delete the entire database and stop them
-            await msg.channel.send(':x: NO U how dare you try deleing the entire database thats not nice')
-            return
-        for i in dirtyReplies:
-            if not args in i:
-                cleanReplies.append(i)
-        f.write(cleanReplies)
-        f.close()
-        await msg.channel.send('Removed **{}** replies containing **{}**'.format(len(dirtyReplies) - len(cleanReplies), args))
+
 
 async def init(self):
     await self.registerCommand(alepsa, 'alepsa', 'alepsa <question>', '8ball but alexa with a lisp')
