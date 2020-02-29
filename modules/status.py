@@ -9,7 +9,7 @@ async def statCommand(self, msg, args):
     if msg.author.id in self.owners:
         await rlStat(self)
     else:
-        msg.channel.send(':x: you do not have permission to do that')
+        await msg.channel.send(':x: you do not have permission to do that')
 
 async def init(self):
     await rlStat(self)
