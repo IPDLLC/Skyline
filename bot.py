@@ -21,6 +21,8 @@ class Bot(discord.Client):
         self.help = {}
         self.prefix = "!?"
         
+        self.owners = config.botOwners
+
         print('loading modules...')
 
         await self.loadModules()

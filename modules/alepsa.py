@@ -23,4 +23,3 @@ async def addreply(self, msg, args):
 async def init(self):
     await self.registerCommand(alepsa, 'alepsa', 'alepsa <question>', '8ball but alexa with a lisp')
     await self.registerCommand(addreply, 'addalepsa', 'addalepsa <reply>', 'add your replies to alepsa!')
-    await self.registerCommand(removereply, 'removealepsa', 'removealepsa <reply>', 'remove replies in alepsa!')
