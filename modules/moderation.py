@@ -19,7 +19,7 @@ async def infractions(self, msg, args):
         await noPerms(self, msg)
 
 async def warn(self, msg, args):
-    if msg.author.guild_permissions.manage_messages:
+    if msg.author.guild_permissions.kick_members:
         args = args.split()
         try:
             toWarn = self.get_user(msg.mentions[0].id)
