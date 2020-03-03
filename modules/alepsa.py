@@ -2,7 +2,7 @@ alepsaFile = 'db/alepsa.txt'
 
 import random
 
-# community 8ball
+# community 8ball essentially, add whatever the hell u want, unless its racism or bad words etc etc this is a kids show :)
 async def alepsa(self, msg, args):
         f = open(alepsaFile, 'r')
         replies = f.readlines()
