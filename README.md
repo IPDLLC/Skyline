@@ -9,7 +9,7 @@ Don't forget to read the [license](LICENSE)
 - go to this [oauth link](https://discordapp.com/oauth2/authorize?client_id=679066447942516760&scope=bot&permissions=8) to add it to your server!
 ## Self host our bot
 - use linux windows bad
-- git clone it
+- download the latest stable release of Skyline (don't git clone, there may be bugs lurking!)
 - make a config.py file with the content:
 ```
 botToken="<your token here>"
@@ -18,4 +18,5 @@ blacklistedUsers=[<ids of people not allowed to use the bot>]
 ```
 - install the dependencies, you need python, and some python librarys including discord.py
 - do `./runBot.sh` to start the bot
+If we do make another stable release, just download the newest release and keep your config file.
 
