@@ -18,5 +18,5 @@ blacklistedUsers=[<ids of people not allowed to use the bot>]
 ```
 - install the dependencies, you need python, and some python librarys including discord.py
 - do `./runBot.sh` to start the bot
-If we do make another stable release, just download the newest release and keep your config file.
+## If we do make another stable release, just download the newest release and keep your config file.
 
