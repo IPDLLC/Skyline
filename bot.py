@@ -70,6 +70,7 @@ class Bot(discord.Client):
         return await perms.permCheck(self, user)
 
     async def on_message(self, message):
+        await self.wait_until_ready()
         if message.author.id in self.blacklistedUsers:
             return
         if message.content[0:len(self.prefix)] == self.prefix:
