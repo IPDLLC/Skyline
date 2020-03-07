@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 
+print('loading libraries')
+
 import config, perms
 import discord, traceback, asyncio, sys, os
 
-
+print('loading classes')
 
 class Bot(discord.Client):
     async def on_ready(self):
@@ -90,7 +92,10 @@ class Bot(discord.Client):
                     print(n, "Inp:", message.content)
                     traceback.print_tb(n[2])
 
+print('initilizing bot...')
+
 client = Bot()
+print('connecting...')
 client.run(config.botToken)
 
 
