@@ -48,7 +48,7 @@ class Bot(discord.Client):
             return [1, 'module already loaded']
 
     async def registerCommand(self, e, c, u, d):
-        self.cmd[c] = e # function to call on command
+        self.cmd[c] = e # function to call on command easteregmessageuneversawdis
         self.help[c] = [u, d] # record help text and description
 
     async def registerRaw(self, c): # make a module receive all messages
