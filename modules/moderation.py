@@ -35,7 +35,7 @@ async def warn(self, msg, args):
             f.write("\n"+str(toWarn.id)+"\t "+args)
             f.close()
         else:
-            await msg.channel.send(':x: Sorry, **I cannot find that user**.')
+            await msg.channel.send(':x: Sorry, **I cannot find that user**.') # we will try do this for everything soon dw peoples
     else:
         await noPerms(self, msg)
 
