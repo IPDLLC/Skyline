@@ -48,27 +48,33 @@ async def kick(self, msg, args):
             await msg.guild.kick(resp, reason=args)
             await msg.channel.send(":white_check_mark: {} **has been kicked**.".format(str(resp)))
         except:
-            await msg.channel.send(":x: User either does not exist, or I do not have the permissions to kick them as they are either a bot, or a higher member than me!")
+            await msg.channel.send(":x: **User either does not exist, or I do not have the permissions to kick them as they are either a bot, or a higher member than me!**")
     else:
         await noPerms(self, msg)
 
 async def ban(self, msg, args):
     if msg.author.guild_permissions.ban_members:
-        resp = msg.mentions[0]
-        args = "{} ({})".format(args, str(msg.author))
-        await resp.send('You were banned in **{}** for **{}**'.format(msg.guild.name, args))
-        await msg.guild.ban(resp, reason=args, delete_message_days=0)
-        await msg.channel.send(":white_check_mark: {} **has been banned**.".format(str(resp)))
+    	try:
+        	resp = msg.mentions[0]
+        	args = "{} ({})".format(args, str(msg.author))
+        	await resp.send('You were banned in **{}** for **{}**'.format(msg.guild.name, args))
+        	await msg.guild.ban(resp, reason=args, delete_message_days=0)
+        	await msg.channel.send(":white_check_mark: {} **has been banned**.".format(str(resp)))
+        except:
+        	await msg.channel.send(":x: **User either does not exist, or I do not have the permissions to kick them as they are either a bot, or a higher member than me!**")
     else:
         await noPerms(self, msg)
 
 async def gtfo(self, msg, args):
     if msg.author.guild_permissions.ban_members:
-        resp = msg.mentions[0] 
-        args = "{} ({})".format(args, str(msg.author))
-        await resp.send('You were warned in **{}** for **{}**'.format(msg.guild.name, args))
-        await msg.guild.ban(resp, reason=args, delete_message_days=7)
-        await msg.channel.send(":white_check_mark: {} **has been banned and rolled back**.".format(str(resp)))
+    	try:
+        	resp = msg.mentions[0] 
+        	args = "{} ({})".format(args, str(msg.author))
+        	await resp.send('You were warned in **{}** for **{}**'.format(msg.guild.name, args))
+        	await msg.guild.ban(resp, reason=args, delete_message_days=7)
+        	await msg.channel.send(":white_check_mark: {} **has been banned and rolled back**.".format(str(resp)))
+        except:
+        	await msg.channel.send(":x: **User either does not exist, or I do not have the permissions to kick them as they are either a bot, or a higher member than me!**")
     else:
         await noPerms(self, msg)
 
