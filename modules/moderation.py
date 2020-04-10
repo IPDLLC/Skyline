@@ -41,11 +41,14 @@ async def warn(self, msg, args):
 
 async def kick(self, msg, args):
     if msg.author.guild_permissions.kick_members:
-        resp = msg.mentions[0]
-        args = "{} ({})".format(args, str(msg.author))
-        await resp.send('You were kicked in **{}** for **{}**'.format(msg.guild.name, args))
-        await msg.guild.kick(resp, reason=args)
-        await msg.channel.send(":white_check_mark: {} **has been kicked**.".format(str(resp)))
+        try:
+            resp = msg.mentions[0]
+            args = "{} ({})".format(args, str(msg.author))
+            await resp.send('You were kicked in **{}** for **{}**'.format(msg.guild.name, args))
+            await msg.guild.kick(resp, reason=args)
+            await msg.channel.send(":white_check_mark: {} **has been kicked**.".format(str(resp)))
+        except:
+            await msg.channel.send(":x: User either does not exist, or I do not have the permissions to kick them as they are either a bot, or a higher member than me!")
     else:
         await noPerms(self, msg)
 
