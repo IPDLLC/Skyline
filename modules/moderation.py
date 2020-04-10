@@ -54,7 +54,7 @@ async def kick(self, msg, args):
 
 async def ban(self, msg, args):
     if msg.author.guild_permissions.ban_members:
-    	try:
+        try:
             resp = msg.mentions[0]
             args = "{} ({})".format(args, str(msg.author))
             await resp.send('You were banned in **{}** for **{}**'.format(msg.guild.name, args))
@@ -67,7 +67,7 @@ async def ban(self, msg, args):
 
 async def gtfo(self, msg, args):
     if msg.author.guild_permissions.ban_members:
-    	try:
+        try:
             resp = msg.mentions[0] 
             args = "{} ({})".format(args, str(msg.author))
             await resp.send('You were warned in **{}** for **{}**'.format(msg.guild.name, args))
