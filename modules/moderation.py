@@ -70,7 +70,7 @@ async def gtfo(self, msg, args):
         try:
             resp = msg.mentions[0] 
             args = "{} ({})".format(args, str(msg.author))
-            await resp.send('You were warned in **{}** for **{}**'.format(msg.guild.name, args))
+            await resp.send('You were banned in **{}** for **{}**'.format(msg.guild.name, args))
             await msg.guild.ban(resp, reason=args, delete_message_days=7)
             await msg.channel.send(":white_check_mark: {} **has been banned and rolled back**.".format(str(resp)))
         except:
