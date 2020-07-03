@@ -1,3 +1,5 @@
 config.py
 *.pyc
 stonks.json
+alepsa.txt
+warns.txt
